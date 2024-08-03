@@ -192,7 +192,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="container mx-auto px-4 h-full flex items-center justify-center relative z-10">
             <div className="text-center">
-              <h2 className="text-lg text-white">You're Invited To The Wedding Of</h2>
+              <h2 className="text-lg text-white">You&apos;re Invited To The Wedding Of</h2>
               <h4 className={`${LoraFont.className} text-5xl pt-3 font-bold text-white`}>RYAN EKA</h4>
               <h6 className={`text-3xl ${BeauFont.className} font-bold text-white mt-3`}>Triana</h6>
               <h4 className={`text-2xl pt-3 ${LoraFont.className} text-white`}>&</h4>
@@ -245,7 +245,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className={`container mx-auto px-4 text-center ${PoppinsFont.className} text-white relative`}>
           <h2 className="text-4xl font-bold">Save the Date</h2>
-          <p className='text-xs pt-5'>"Seperti matahari terbenam yang indah, cinta kami bersinar. Bergabunglah dengan kami dalam merayakan awal baru ini."</p>
+          <p className='text-xs pt-5'>&quot;Seperti matahari terbenam yang indah, cinta kami bersinar. Bergabunglah dengan kami dalam merayakan awal baru ini.&quot;</p>
           <div className="flex justify-center mt-4">
             <svg className="pulse-animation" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -437,7 +437,7 @@ export default function Home() {
       {/* Our Gallery */}
       <div className={`text-center pt-7 ${PoppinsFont.className}`}>
         <h1 className='text-3xl font-bold'>Our Gallery</h1>
-        <p className="text-sm text-gray-600 pt-3">We've got a lot to show you!</p>
+        <p className="text-sm text-gray-600 pt-3">We&apos;ve got a lot to show you!</p>
         <p className="text-xs text-gray-600 pt-2 mb-3">Swipe Left →</p>
         <div {...handlers} className="relative w-full overflow-hidden">
           <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
