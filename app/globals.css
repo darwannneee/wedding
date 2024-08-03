@@ -25,3 +25,26 @@
   .pulse-animation {
     animation: pulse 1s infinite;
   }
+
+  @keyframes wiggle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .animate-wiggle {
+    rotate: calc(-30deg);
+    animation: wiggle 2s infinite;
+  }
+
+  @keyframes flower {
+    0%, 100% { 
+      transform: rotate(0deg); 
+    }
+    50% { 
+      transform: rotate(0.5deg); 
+    }
+  }
+  
+  .animate-flower {
+    animation: flower 2s infinite ease-in-out;
+  }
