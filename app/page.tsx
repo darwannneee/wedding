@@ -533,9 +533,6 @@ export default function Home() {
         
         {/* Mobile Gallery */}
         <div className={`text-center pt-7 ${PoppinsFont.className} lg:hidden`}>
-          <h1 className='text-3xl font-bold'>Our Gallery</h1>
-          <p className="text-sm text-gray-600 pt-3">We&apos;ve got a lot to show you!</p>
-          <p className="text-xs text-gray-600 pt-2 mb-3">Swipe Left →</p>
           <div {...handlers} className="relative w-full overflow-hidden">
             <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
               {images.map((image, index) => (
