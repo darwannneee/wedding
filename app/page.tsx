@@ -13,7 +13,6 @@ import WeddingImage6 from "@/app/img/FOTO WEDDING/_WIL8219.jpg";
 import WeddingImage7 from "@/app/img/FOTO WEDDING/_WIL8250.jpg";
 import WeddingImage8 from "@/app/img/FOTO WEDDING/_WIL8272.jpg";
 
-
 import WeddingLanscape from "@/app/img/FOTO WEDDING/_WIL8380.jpg";
 import FooterImage from "@/app/img/FOTO WEDDING/_WIL8657.jpg"
 
@@ -24,6 +23,7 @@ import Flower4 from "@/app/img/Flower4.png";
 
 import FlowerAtas from "@/app/img/flower_atas.png";
 import FlowerBawah from "@/app/img/flower_bawah.png";
+import { FaPlay, FaPause } from 'react-icons/fa';
 
 import { useSwipeable } from 'react-swipeable';
 
@@ -83,6 +83,21 @@ export default function Home() {
   const flowerRef = useRef<HTMLImageElement>(null);
   const [isFlowerVisible, setIsFlowerVisible] = useState(false);
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+    const togglePlayPause = () => {
+      if (isPlaying) {
+        if (audioRef.current !== null) {
+          (audioRef.current as HTMLAudioElement).pause();
+        }
+      } else {
+        if (audioRef.current !== null) {
+          audioRef.current.play();
+        }
+      }
+      setIsPlaying(!isPlaying);
+    };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -158,6 +173,12 @@ export default function Home() {
   });
 
   const handleOpenInvitation = () => {
+    if (audioRef.current !== null) {
+        audioRef.current.play().catch(error => {
+        console.error("Error attempting to play audio:", error);
+      });
+      setIsPlaying(true);
+    }
     setIsInvitationOpened(true);
   };
 
@@ -185,7 +206,6 @@ export default function Home() {
       <Head>
         <title>Sanches Liza</title>
         <meta name="description" content="Floral Designer, Wedding Planner, and Event Enthusiast" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       {!isInvitationOpened ? (
         <section className="h-screen relative">
@@ -216,6 +236,7 @@ export default function Home() {
         </section>
       ) : (
         <>
+      <audio ref={audioRef} src="/song/song.mp3" autoPlay loop></audio>
       <section className="h-screen relative">
         {images.map((image, index) => (
           <div
@@ -248,7 +269,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-40 xl:py-72 bg-cover bg-center relative" style={{ backgroundImage: `url(${WeddingLanscape.src})` }}>
+      <section className="py-32 xl:py-72 bg-cover bg-center relative" style={{ backgroundImage: `url(${WeddingLanscape.src})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className={`container mx-auto px-4 text-center ${PoppinsFont.className} text-white relative`}>
           <h2 className="text-4xl font-bold">Save the Date</h2>
@@ -267,8 +288,46 @@ export default function Home() {
             </p>
           </div>
           <p className="text-sm mt-4">Sabtu, 20 Oktober 2024</p>
+          <div className='pt-8'>
+            <a href="/savethedate.ics" download="/savethedate.ics" >
+              <button className={`bg-white text-black p-2 rounded-lg hover:shadow-md ${PoppinsFont.className}`}>Save The Date</button>
+            </a>
+          </div>
         </div>
-
+      </section>
+      <section className="py-72 xl:py-96 2xl:py-[600px] bg-cover bg-center relative" style={{ backgroundImage: `url(${WeddingImage8.src})` }}>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Social Media Section */}
+        <div className="px-4 lg:px-56 2xl:px-96 lg:flex mt-12 absolute top-24 w-full">
+          <div className="flex flex-wrap justify-start items-center w-full lg:w-1/2 p-4 lg:mt-28">
+            <div className="bg-opacity-10 p-6 rounded-lg text-white" style={{background: 'linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(56,103,134,0.7189469537815126) 0%, rgba(110,246,255,0) 100%)'}}>
+              <div className="relative z-10 text-opacity-100">
+                <h3 className="text-xl font-bold mb-2">Syifa Eka Rahardian</h3>
+                <p className="text-xs">The son of Mr. XXX & Mrs. SSS</p>
+                <div className='border py-1 mt-2 text-center flex justify-center items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" className='mr-2'>
+                    <path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z"/>
+                  </svg>
+                  <a href="https://instagram.com/luckivanius" className="text-xs py-1">@syifaekarahardian</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-end items-center w-full lg:w-1/2 p-4 lg:mt-28">
+            <div className="bg-opacity-10 p-6 rounded-lg text-white" style={{background: 'linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(56,103,134,0.7189469537815126) 0%, rgba(110,246,255,0) 100%)'}}>
+              <div className="relative z-10 text-opacity-100">
+                <h3 className="text-xl font-bold mb-2">Ryan Eka Triana</h3>
+                <p className="text-xs">The son of Mr. XXX & Mrs. SSS</p>
+                <div className='border py-1 mt-2 text-center flex justify-center items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white" className='mr-2'>
+                    <path d="M16.98 0a6.9 6.9 0 0 1 5.08 1.98A6.94 6.94 0 0 1 24 7.02v9.96c0 2.08-.68 3.87-1.98 5.13A7.14 7.14 0 0 1 16.94 24H7.06a7.06 7.06 0 0 1-5.03-1.89A6.96 6.96 0 0 1 0 16.94V7.02C0 2.8 2.8 0 7.02 0h9.96zm.05 2.23H7.06c-1.45 0-2.7.43-3.53 1.25a4.82 4.82 0 0 0-1.3 3.54v9.92c0 1.5.43 2.7 1.3 3.58a5 5 0 0 0 3.53 1.25h9.88a5 5 0 0 0 3.53-1.25 4.73 4.73 0 0 0 1.4-3.54V7.02a5 5 0 0 0-1.3-3.49 4.82 4.82 0 0 0-3.54-1.3zM12 5.76c3.39 0 6.2 2.8 6.2 6.2a6.2 6.2 0 0 1-12.4 0 6.2 6.2 0 0 1 6.2-6.2zm0 2.22a3.99 3.99 0 0 0-3.97 3.97A3.99 3.99 0 0 0 12 15.92a3.99 3.99 0 0 0 3.97-3.97A3.99 3.99 0 0 0 12 7.98zm6.44-3.77a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8z"/>
+                  </svg>
+                  <a href="https://instagram.com/luckivanius" className="text-xs py-1">@ryanekatriana</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Wave SVG */}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='absolute bottom-0 left-0 w-full'>
           <path fill="#f1f5f9" fillOpacity="1" d="M0,0L30,10.7C60,21,120,43,180,80C240,117,300,171,360,165.3C420,160,480,96,540,106.7C600,117,660,203,720,213.3C780,224,840,160,900,160C960,160,1020,224,1080,218.7C1140,213,1200,139,1260,101.3C1320,64,1380,64,1410,64L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
@@ -444,7 +503,7 @@ export default function Home() {
       )}
 
         {/* Dummy Comments Section */}
-        <div className='mt-10 mb-48'>
+        <div className='mt-10 mb-0'>
           <h2 className={`text-black text-center ${VollkornbBold.className} text-2xl mb-4`}>Ucapan yang Diterima</h2>
           <div className='space-y-4'>
             {comments.length > 0 && (
@@ -471,16 +530,33 @@ export default function Home() {
         <h1 className='text-3xl font-bold'>Our Gallery</h1>
         <p className="text-sm text-gray-600 pt-3">We&apos;ve got a lot to show you!</p>
         <p className="text-xs text-gray-600 pt-2 mb-3">Swipe Left →</p>
-        <div {...handlers} className="relative w-full overflow-hidden">
-          <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
-            {images.map((image, index) => (
-              <div key={index} className="min-w-full h-[500px] flex justify-center items-center">
-                <img src={image.src} alt={`Gallery Image ${index + 1}`} className="object-cover h-full w-auto rounded-md shadow-lg" />
-              </div>
-            ))}
+        
+        {/* Mobile Gallery */}
+        <div className={`text-center pt-7 ${PoppinsFont.className} lg:hidden`}>
+          <h1 className='text-3xl font-bold'>Our Gallery</h1>
+          <p className="text-sm text-gray-600 pt-3">We&apos;ve got a lot to show you!</p>
+          <p className="text-xs text-gray-600 pt-2 mb-3">Swipe Left →</p>
+          <div {...handlers} className="relative w-full overflow-hidden">
+            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
+              {images.map((image, index) => (
+                <div key={index} className="min-w-full h-[500px] flex justify-center items-center">
+                  <img src={image.src} alt={`Gallery Image ${index + 1}`} className="object-cover h-full w-auto rounded-md shadow-lg" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Desktop Gallery */}
+        <div className="hidden lg:grid grid-cols-4 gap-4 lg:mx-24">
+          {images.map((image, index) => (
+            <div key={index} className=" h-[300px] flex justify-center items-center">
+              <img src={image.src} alt={`Gallery Image ${index + 1}`} className="object-cover h-full w-full rounded-md shadow-lg" />
+            </div>
+          ))}
+        </div>
       </div>
+
 
       <div className='relative text-center h-screen bg-cover bg-center' style={{ backgroundImage: `url(${FooterImage.src})`, backgroundSize: 'cover' }}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='absolute top-0 left-0 w-full z-20'>
@@ -498,8 +574,20 @@ export default function Home() {
               </div>
           </div>
       </div>
+      
+
+      {/* Footer */}
+      <div 
+        onClick={togglePlayPause} 
+        className="record z-50"
+      >
+        <div className="record-center">
+          {isPlaying ? <FaPause className="icon" /> : <FaPlay className="icon" />}
+        </div>
+      </div>
       </>
       )}
+      
     </div>
   );
 }

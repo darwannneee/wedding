@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Your App//EN
+BEGIN:VEVENT
+UID:1234567890@example.com
+DTSTAMP:20230801T120000Z
+DTSTART:20240915T180000Z
+DTEND:20240915T200000Z
+SUMMARY:The Wedding Of Ryan Eka Triana & Syifa Eka Rahardian
+DESCRIPTION:Description of your event.
+LOCATION:Grand Andaliman Hal, Jl. Abdullah Lubis No.79/101, Merdeka, Kec. Medan Baru, Kota Medan, Sumatera Utara
+END:VEVENT
+END:VCALENDAR
